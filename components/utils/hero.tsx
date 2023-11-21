@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import OngoiningProjects from "./ongoingProject";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="">
+    <section className="w-full">
       {/* Illustration behind hero content */}
-      <div
-        className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -z-1"
+      {/* <div
+        className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -z-10 flex"
         aria-hidden="true"
       >
         <svg
@@ -34,20 +35,35 @@ export default function Hero() {
             <circle cx="155" cy="443" r="64" />
           </g>
         </svg>
-      </div>
-
+      </div> */}
       <Image
         src="/logo3.svg"
         alt="Logo"
         width={0}
         height={0}
         sizes="100vw"
+        className="dark:hidden w-full flex"
+        style={{ width: "100%", height: "auto" }}
+      />
+      <Image
+        src="/dark_copy.svg"
+        alt="Logo"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="hidden dark:block w-full"
         style={{ width: "100%", height: "auto" }}
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <p className="text-center text-3xl font-semibold uppercase text-blue-700 tracking-wide">
+        <p className="text-center bg-gr text-3xl font-semibold uppercase text-blue-700 tracking-wide mb-5 dark:text-gray-300">
           Coming soon!
         </p>
+        <div className="justify-center flex">
+          <Button variant={"commingsoon"} size={"lg"}>
+            Enter Autolabs
+            <ArrowRight className="h-4 w-4 ml-2" />
+          </Button>
+        </div>
       </div>
       <OngoiningProjects />
     </section>
